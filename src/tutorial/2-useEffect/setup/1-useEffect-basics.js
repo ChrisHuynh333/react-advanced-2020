@@ -6,9 +6,14 @@ const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
   useEffect(() => {
     console.log('call useEffect');
-    document.title = `New Messages (${value})`
-    // test
-  })
+    if (value > 0) {
+      document.title = `New Messages (${value})`
+    }
+  },[value])
+
+  useEffect (() => {
+    console.log('hello');
+  }, [])
   console.log('render component');
   return (<>
   <h1>{value}</h1>
